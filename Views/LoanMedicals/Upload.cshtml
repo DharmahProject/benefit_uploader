@@ -1,0 +1,140 @@
+﻿@*@model IEnumerable<BenefitUploader.Models.LoanM>*@
+@{
+    ViewData["Title"] = "Loan Medical";
+}
+
+<div class="row">
+    <div class="panel-heading">
+        @*@if ((ViewData["Status"] as List<string>).Count > 0)
+            {
+
+                @foreach (string str in ViewData["Status"] as List<string>)
+                {
+                    <p style="color:blue;"> @str</p>
+                }
+            }*@
+        @*<p style="color:blue;"> @Html.Encode(ViewData["Status"])*@
+    </div>
+</div>
+<div><h1></h1><p></p><br /></div>
+<div class="row">
+    <div class="panel-heading">
+        <p>Select File ( <a asp-action="Download" title="Click for download" asp-route-id="LoanMedicalTemplate.xlsx">Download Template</a>) :</p>
+    </div>
+</div>
+<form method="post" asp-action="Upload" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="file" id="reportfile" name="reportfile" class="form-control" />
+        </div>
+        <div class="col-md-8">
+            <input type="submit" id="btnUpload" value="Upload"  />
+        </div>
+    </div>
+    <div id="dvData"></div>
+   
+</form>
+<div class="row">
+    <!-- [ sample-page ] start -->
+    <div class="col-sm-12">
+        <div class="card">
+
+            <div class="card-block">
+                <div class="table-responsive">
+                    @{
+                        List<LoanMedical> lb = ViewData["List"] as List<LoanMedical>;
+                        @if (lb.Count > 0)
+                        {
+                            <table id="responsive-table-custom" class="responsive-table display table nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Employee ID
+                                        </th>
+                                        <th>
+                                            Nama Pasien
+                                        </th>
+                                        <th>
+                                            Tanggal Awal Berobat
+                                        </th>
+                                        <th>
+                                            Tanggal Akhir Berobat
+                                        </th>
+                                        <th>
+                                            Tempat Berobat
+                                        </th>
+                                        <th>
+                                            Jenis Klaim
+                                        </th>
+                                        <th>
+                                            Nominal Potongan
+                                        </th>
+                                        <th>
+                                            Keterangan
+                                        </th>
+                                        <th>
+                                            Periode Potongan
+                                        </th>
+                                        <th>
+                                            Created By
+                                        </th>
+                                        <th>
+                                            Created Date
+                                        </th>
+                                        <th>Remark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var ben in lb)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.Label(ben.EmployeeID)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.Pasien)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.TglAwalBerobat.ToString("dd-MM-yyyy"), ben.TglAwalBerobat.ToString("dd-MM-yyyy"), new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.TglAkhirBerobat.ToString("dd-MM-yyyy"), ben.TglAkhirBerobat.ToString("dd-MM-yyyy"), new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.TempatBerobat)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.JenisKlaim)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.NominalPotongan)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.Keterangan)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.PeriodePemotongan)
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.CreatedBy, ben.CreatedBy, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss"))
+                                        </td>
+                                        <td>
+                                            @Html.Label(ben.Description)
+                                        </td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ sample-page ] end -->
+</div>

@@ -1,0 +1,85 @@
+﻿@model BenefitUploader.Models.LoanMedical
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoanMedical</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TglAwalBerobat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TglAwalBerobat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TglAkhirBerobat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TglAkhirBerobat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TempatBerobat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TempatBerobat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JenisKlaim)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JenisKlaim)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NominalPotongan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NominalPotongan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PeriodePemotongan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PeriodePemotongan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

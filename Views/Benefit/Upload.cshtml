@@ -1,0 +1,143 @@
+﻿@*@model IEnumerable<BenefitUploader.Models.Benefit>*@
+@{
+    ViewData["Title"] = "Plafon Benefit";
+}
+
+<div class="row">
+    <div class="panel-heading">
+        @*@if ((ViewData["Status"] as List<string>).Count > 0)
+            {
+
+                @foreach (string str in ViewData["Status"] as List<string>)
+                {
+                    <p style="color:blue;"> @str</p>
+                }
+            }*@
+        @*<p style="color:blue;"> @Html.Encode(ViewData["Status"])*@
+    </div>
+</div>
+<div><h1></h1><p></p><br /></div>
+<div class="row">
+    <div class="panel-heading">
+        <p>Select File ( <a asp-action="Download" title="Click for download" asp-route-id="BenefitTemplate.xlsx">Download Template</a>) :</p>
+    </div>
+</div>
+<form method="post" asp-action="Upload" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="file" id="reportfile" name="reportfile" class="form-control" />
+        </div>
+        <div class="col-md-8">
+            <input type="submit" id="btnUpload" value="Upload" />
+        </div>
+    </div>
+    <div id="dvData"></div>
+
+</form>
+<div class="row">
+    <!-- [ sample-page ] start -->
+    <div class="col-sm-12">
+        <div class="card">
+
+            <div class="card-block">
+                <div class="table-responsive">
+                    @{
+                        List<Benefit> lb = ViewData["List"] as List<Benefit>;
+                        @if (lb.Count > 0)
+                        {
+                            <table id="responsive-table-custom" class="responsive-table display table nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.EmployeeID)*@
+                                            Employee ID
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.Name)*@
+                                            Name
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.PersArea)*@
+                                            Pers Area
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.CutOffDate)*@
+                                            Cut Off Date
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.LimitTahunan)*@
+                                            Limit Tahunan
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.KlaimDibayar)*@
+                                            Klaim Dibayar
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.OverPlafon)*@
+                                            Estimasi Sisa Plafon
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.CreatedBy)*@
+                                            Created By
+                                        </th>
+                                        <th>
+                                            @*@Html.DisplayNameFor(model => model.CreatedDate)*@
+                                            Created Date
+                                        </th>
+                                        <th>Remark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var ben in lb)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.Label(ben.EmployeeID)
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.Name)
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.PersArea)
+                                            </td>
+                                            <td>
+                                                @*@Html.Label(item.CutOffDate.ToString("dd-MM-yyyy"), item.CutOffDate.ToString("dd-MM-yyyy"), new { @class = "myClass" })*@
+                                                @Html.Label(ben.CutOffDate.ToString("dd-MM-yyyy"), ben.CutOffDate.ToString("dd-MM-yyyy"), new { @class = "myClass" })
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.LimitTahunan, ben.LimitTahunan, new { @class = "myClass" })
+
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.KlaimDibayar, ben.KlaimDibayar, new { @class = "myClass" })
+
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.OverPlafon, ben.OverPlafon, new { @class = "myClass" })
+
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.CreatedBy, ben.CreatedBy, new { @class = "myClass" })
+
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss"))
+
+                                            </td>
+                                            <td>
+                                                @Html.Label(ben.Description)
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- [ sample-page ] end -->
+</div>

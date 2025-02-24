@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Upload Notif Email Sisa Plafon HR </title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body style="background-color:aliceblue">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-right">
+
+                <img src="~/images/logo.png" width="175" height="53" class="logo" />
+            </div>
+            <div class="navbar-collapse collapse right">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="color:white">Upload Email Notification HR</a>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Benefit")" class="nav-link">
+                            <span class="pcoded-micon"><i class="icon-list"></i></span><span class="pcoded-mtext">Uploaded Benefit List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Upload", "Benefit")" class="nav-link">
+                            <span class="pcoded-micon"><i class="icon-upload"></i></span><span class="pcoded-mtext">Upload Plafon Benefit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "LoanMedicals")" class="nav-link">
+                            <span class="pcoded-micon"><i class="icon-list"></i></span><span class="pcoded-mtext">Uploaded Loan Medical List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Upload", "LoanMedicals")" class="nav-link">
+                            <span class="pcoded-micon"><i class="icon-upload"></i></span><span class="pcoded-mtext">Upload Loan Medical</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse">
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" style="background-color:white">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - BUMA</p>
+        </footer>
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

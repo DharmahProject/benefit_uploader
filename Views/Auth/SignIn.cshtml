@@ -1,0 +1,53 @@
+﻿@model BenefitUploader.Models.Auth
+
+@{
+    ViewData["Title"] = "SignIn";
+    Layout = "~/Views/Shared/_LayoutAccess.cshtml";
+}
+
+<div class="auth-wrapper">
+    <div class="auth-content">
+        @*<div class="auth-bg">
+            <span class="r"></span>
+            <span class="r s"></span>
+            <span class="r s"></span>
+            <span class="r"></span>
+        </div>*@
+        <div class="card"> 
+            <div class="card-body text-center">
+                <form asp-action="SignIn">
+                    <div class="mb-4">
+                        <i class="feather icon-unlock auth-icon"></i>
+                    </div>
+                    <h3 class="mb-4">Plafon Benefit Uploader</h3>
+                    <div class="input-group mb-3">
+                        <input asp-for="UserName" name="username" type="text" class="form-control" placeholder="AD Account">
+                    </div>
+                    <div class="input-group mb-4">
+                        <input asp-for="Password" name="password" type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group text-left">
+                        @*<div class="checkbox checkbox-fill d-inline">
+                            <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
+                            <label for="checkbox-fill-a1" asp-for="RememberMe" class="cr"> Save Details</label>
+                        </div>*@
+                    </div>
+                    <button type="submit" class="btn btn-primary shadow-2 mb-4">Login</button>
+                    <p>
+                        <span  class="text-danger">
+                            @Html.ValidationMessage("ExceptionError")
+
+                        </span>
+
+
+                        @*<div asp-validation-summary="ModelOnly" class="text-danger">
+
+            <label for="checkbox-fill-a1" class="cr"> mode</label>
+        </div>*@
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

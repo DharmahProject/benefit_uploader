@@ -1,0 +1,150 @@
+﻿@model IEnumerable<BenefitUploader.Models.LoanMedical>
+
+@{
+    ViewData["Title"] = "Loan Medical List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-10">
+            <label style="font-size:30px">Uploaded List</label>
+        </div>
+        <div class="col-sm-2" style="padding-top:15px">
+
+            <a asp-action="Export" title="Export to excel" asp-route-id="ExportMedical">Export to excel</a>
+        </div>
+    </div>
+
+</div>
+<table></table>
+<style>
+    .myClass label {
+        font-weight: bold;
+    }
+
+    .responsive-table thead > tr {
+        background: linear-gradient(to right, rgb(10, 207, 254) 0%, rgb(73, 90, 255) 100%) !important;
+        color: white !important;
+    }
+</style>
+
+<div class="main-body">
+    <div class="page-wrapper">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!-- [ sample-page ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+
+                    <div class="card-block">
+                        <div class="table-responsive">
+                            <table id="responsive-table-custom" class="responsive-table display table nowrap" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.EmployeeID)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Pasien)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TglAwalBerobat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TglAkhirBerobat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.TempatBerobat)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.JenisKlaim)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Biaya)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Angsuran)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.NominalPotongan)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PeriodePemotongan)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Keterangan)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CreatedBy)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CreatedDate)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.Label(item.EmployeeID, item.EmployeeID, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.Pasien, item.Pasien, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.TglAwalBerobat.ToString("dd-MM-yyyy"), item.TglAwalBerobat.ToString("dd-MM-yyyy"), new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.TglAkhirBerobat.ToString("dd-MM-yyyy"), item.TglAkhirBerobat.ToString("dd-MM-yyyy"), new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.TempatBerobat, item.TempatBerobat, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.JenisKlaim, item.JenisKlaim, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.NominalPotongan, item.Biaya, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.NominalPotongan, item.Angsuran, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.NominalPotongan, item.NominalPotongan, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.PeriodePemotongan, item.PeriodePemotongan, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.Keterangan, item.Keterangan, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.CreatedBy, item.CreatedBy, new { @class = "myClass" })
+                                        </td>
+                                        <td>
+                                            @Html.Label(item.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss"))
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ sample-page ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</div>
+
+<style type="text/css">
+    .goliveprd {
+        background-color: #BEE4FF;
+    }
+</style>
